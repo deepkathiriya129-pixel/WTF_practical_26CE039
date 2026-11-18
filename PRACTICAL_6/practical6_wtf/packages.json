@@ -1,0 +1,7 @@
+[
+  {"id": 1, "category": "Laptop", "title": "TechNest Pro Laptop", "warranty": 24, "price": 45000, "description": "Fast 14-inch laptop for study, coding and daily work.", "icon": "💻"},
+  {"id": 2, "category": "Smartphone", "title": "TechNest Nova Phone", "warranty": 12, "price": 18000, "description": "Bright display, long battery life and a clear camera.", "icon": "📱"},
+  {"id": 3, "category": "Headphones", "title": "BassBoom Headphones", "warranty": 12, "price": 3500, "description": "Comfortable wireless headphones with deep bass.", "icon": "🎧"},
+  {"id": 4, "category": "Smartwatch", "title": "FitTrack Smartwatch", "warranty": 6, "price": 6000, "description": "Tracks steps, sleep and heart rate through the day.", "icon": "⌚"},
+  {"id": 5, "category": "Camera", "title": "SnapShot Digital Camera", "warranty": 18, "price": 28000, "description": "Compact camera for photos, travel and videos.", "icon": "📷"}
+]

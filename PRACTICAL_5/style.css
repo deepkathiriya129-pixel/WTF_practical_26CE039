@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 30px 16px;
+    background: linear-gradient(135deg, #d9f3ee 0%, #eaf4ff 55%, #f3ecff 100%);
+    background-attachment: fixed;
+    color: #1f2d3a;
+}
+
+/* ===== Card ===== */
+.container {
+    max-width: 780px;
+    margin: auto;
+    background: white;
+    padding: 0 32px 32px;
+    border-radius: 14px;
+    border-top: 6px solid #0d9488;
+    box-shadow: 0 8px 28px rgba(15, 60, 80, 0.15);
+}
+
+/* ===== Header with logo ===== */
+.brand {
+    text-align: center;
+    padding: 22px 0 6px;
+}
+
+.hospital {
+    display: block;
+    margin: 0 auto 10px;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+h1 {
+    margin: 0;
+    color: #0f766e;
+    font-size: 1.9rem;
+    letter-spacing: 0.5px;
+}
+
+.tagline {
+    margin: 4px 0 0;
+    color: #5b6b78;
+    font-size: 0.95rem;
+}
+
+.form-title {
+    text-align: center;
+    color: #134e4a;
+    margin: 18px 0 4px;
+    padding-top: 16px;
+    border-top: 1px solid #e0ecea;
+}
+
+.note {
+    text-align: center;
+    margin: 0 0 20px;
+    color: #6b7a86;
+    font-size: 0.88rem;
+}
+
+/* ===== Layout: two fields per row ===== */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #134e4a;
+    font-size: 0.92rem;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #c5d3d8;
+    border-radius: 6px;
+    font-size: 15px;
+    background: #fbfefd;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid rgba(13, 148, 136, 0.25);
+    border-color: #0d9488;
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.radio-group label,
+label.inline {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+.radio-group input,
+.checkbox-group input {
+    width: auto;
+}
+
+/* ===== Messages ===== */
+.error {
+    color: #d32f2f;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+}
+
+.success-message {
+    color: #0f7a3d;
+    background: #e3f6ea;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 16px;
+    border-radius: 6px;
+}
+
+.success-message:not(:empty) {
+    padding: 12px;
+}
+
+.strength {
+    font-size: 13px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* ===== Button ===== */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    background: #0d9488;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0f766e;
+}
+
+/* ===== Small screens: one field per row ===== */
+@media (max-width: 640px) {
+    .row {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0 18px 24px;
+    }
+}

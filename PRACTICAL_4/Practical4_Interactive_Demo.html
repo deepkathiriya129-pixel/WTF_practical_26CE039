@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 4 Interactive DOM Demo</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f6f8;color:#222;}
+header{padding:22px;background:#243447;color:white;}
+main{max-width:1100px;margin:auto;padding:20px;}
+section{background:white;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin-bottom:20px;}
+h2{margin-top:0;}
+button,input,select{padding:8px 10px;margin:5px 5px 5px 0;}
+pre{background:#1f1f1f;color:#f2f2f2;padding:14px;overflow:auto;border-radius:7px;white-space:pre-wrap;}
+.demo{padding:12px;background:#f8fbff;border-left:4px solid #555;margin:10px 0;}
+.output{padding:10px;background:#eef2ff;margin-top:8px;}
+.dark{background:#202124;color:white;}
+.dark section{background:#303134;color:white;border-color:#555;}
+.dark .demo{background:#383838;}
+.dark .output{background:#40445a;}
+.card{padding:10px;border:1px solid #bbb;margin:5px 0;}
+#dynamicMenu{display:none;padding:10px;background:#e9ecef;}
+.dark #dynamicMenu{background:#444;}
+#mouseArea{padding:25px;border:2px dashed #555;width:260px;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Practical 4: DOM Manipulation and Event Handling</h1>
+<p>Beginner Interactive Demo - ShopEase Online Store</p>
+</header>
+
+<main>
+
+<section>
+<h2>1. DOM Selection Methods</h2>
+<div class="demo">
+<p id="demoId">Element selected using ID.</p>
+<p class="demoClass">First class element.</p>
+<p class="demoClass">Second class element.</p>
+<button id="selectionDemoBtn">Run Selection Demo</button>
+<div id="selectionResult" class="output">Click the button.</div>
+</div>
+<pre>document.getElementById("demoId");
+document.getElementsByClassName("demoClass");
+document.getElementsByTagName("p");
+document.querySelector(".demoClass");
+document.querySelectorAll(".demoClass");</pre>
+</section>
+
+<section>
+<h2>2. Modify Content, Attribute and Style</h2>
+<div class="demo">
+<p id="productMessage">Mobile price: ₹15,000</p>
+<a id="productLink" href="https://example.com" target="_blank">Product Link</a><br>
+<button id="textDemoBtn">Change Text</button>
+<button id="linkDemoBtn">Change Attribute</button>
+<button id="styleDemoBtn">Change Style</button>
+</div>
+<pre>// Content
+document.getElementById("productMessage").innerHTML = "Mobile price: ₹12,999";
+
+// Attribute
+document.getElementById("productLink").setAttribute("href", "https://www.google.com");
+
+// Style
+document.getElementById("productMessage").style.fontWeight = "bold";</pre>
+</section>
+
+<section>
+<h2>3. Create, Append, Replace and Remove Elements</h2>
+<div class="demo">
+<ul id="demoList">
+<li>Mobile</li>
+<li>Laptop</li>
+</ul>
+<button id="createDemoBtn">Create + Append</button>
+<button id="replaceDemoBtn">Replace First</button>
+<button id="removeDemoBtn">Remove Last</button>
+</div>
+<pre>let item = document.createElement("li");
+item.innerHTML = "Headphones";
+document.getElementById("demoList").appendChild(item);
+
+list.replaceChild(newItem, list.children[0]);
+list.removeChild(list.lastElementChild);</pre>
+</section>
+
+<section>
+<h2>4. Click and Double-Click</h2>
+<div class="demo">
+<button id="singleClickBtn">Click</button>
+<button id="doubleClickBtn">Double-Click</button>
+<div id="clickResult" class="output">Waiting...</div>
+</div>
+<pre>button.addEventListener("click", function(){ ... });
+button.addEventListener("dblclick", function(){ ... });</pre>
+</section>
+
+<section>
+<h2>5. Mouseover and Mouseout</h2>
+<div class="demo">
+<div id="mouseArea">Move the mouse here.</div>
+<div id="mouseResult" class="output">Waiting...</div>
+</div>
+<pre>element.addEventListener("mouseover", function(){ ... });
+element.addEventListener("mouseout", function(){ ... });</pre>
+</section>
+
+<section>
+<h2>6. Keydown and Keyup</h2>
+<div class="demo">
+<input type="text" id="keyboardInput" placeholder="Type something">
+<div id="keyboardResult" class="output">Waiting...</div>
+</div>
+<pre>input.addEventListener("keydown", function(event){
+    console.log(event.key);
+});
+
+input.addEventListener("keyup", function(){
+    console.log(this.value);
+});</pre>
+</section>
+
+<section>
+<h2>7. Change Event</h2>
+<div class="demo">
+<select id="categoryDemo">
+<option value="">Select Product Category</option>
+<option value="Electronics">Electronics</option>
+<option value="Clothing">Clothing</option>
+<option value="Books">Books</option>
+</select>
+<div id="categoryResult" class="output">Nothing selected.</div>
+</div>
+<pre>select.addEventListener("change", function(){
+    result.innerHTML = this.value;
+});</pre>
+</section>
+
+<section>
+<h2>8. Theme Switching</h2>
+<div class="demo">
+<button id="themeDemoBtn">Light / Dark Theme</button>
+</div>
+<pre>document.body.classList.toggle("dark");</pre>
+</section>
+
+<section>
+<h2>9. Image Preview</h2>
+<div class="demo">
+<select id="imageDemoSelect">
+<option value="https://picsum.photos/id/0/350/220">Laptop</option>
+<option value="https://picsum.photos/id/96/350/220">Camera</option>
+<option value="https://picsum.photos/id/1080/350/220">Food</option>
+</select><br>
+<img id="imageDemo" src="https://picsum.photos/id/0/350/220" alt="Preview" style="width:260px;margin-top:10px;">
+</div>
+<pre>document.getElementById("imageDemo").src = this.value;</pre>
+</section>
+
+<section>
+<h2>10. Dynamic Menu</h2>
+<div class="demo">
+<button id="menuDemoBtn">Show / Hide Menu</button>
+<div id="dynamicMenu">Home | Products | Offers | Contact</div>
+</div>
+<pre>if(menu.style.display === "block"){
+    menu.style.display = "none";
+}else{
+    menu.style.display = "block";
+}</pre>
+</section>
+
+<section>
+<h2>What Practical 4 Teaches</h2>
+<p><strong>HTML gives elements → DOM lets JavaScript access those elements → Events tell JavaScript when the user does something → JavaScript changes the page.</strong></p>
+</section>
+
+</main>
+
+<script>
+// 1. Selection
+document.getElementById("selectionDemoBtn").addEventListener("click", function(){
+    let byId = document.getElementById("demoId");
+    let byClass = document.getElementsByClassName("demoClass");
+    let byTag = document.getElementsByTagName("p");
+    let firstClass = document.querySelector(".demoClass");
+    let allClasses = document.querySelectorAll(".demoClass");
+
+    document.getElementById("selectionResult").innerHTML = "ID: " + byId.innerHTML + "<br>Class count: " + byClass.length + "<br>Paragraph count: " + byTag.length + "<br>querySelector(): " + firstClass.innerHTML + "<br>querySelectorAll(): " + allClasses.length;
+});
+
+// 2. Modify
+document.getElementById("textDemoBtn").addEventListener("click", function(){
+    document.getElementById("productMessage").innerHTML = "Mobile price: ₹12,999";
+});
+
+document.getElementById("linkDemoBtn").addEventListener("click", function(){
+    let link = document.getElementById("productLink");
+    link.setAttribute("href", "https://www.google.com");
+    link.innerHTML = "Google";
+});
+
+document.getElementById("styleDemoBtn").addEventListener("click", function(){
+    let message = document.getElementById("productMessage");
+    message.style.fontWeight = "bold";
+    message.style.fontSize = "22px";
+});
+
+// 3. Create / replace / remove
+document.getElementById("createDemoBtn").addEventListener("click", function(){
+    let item = document.createElement("li");
+    item.innerHTML = "Headphones";
+    document.getElementById("demoList").appendChild(item);
+});
+
+document.getElementById("replaceDemoBtn").addEventListener("click", function(){
+    let list = document.getElementById("demoList");
+    if(list.children.length === 0){ return; }
+
+    let item = document.createElement("li");
+    item.innerHTML = "Smart Watch";
+    list.replaceChild(item, list.children[0]);
+});
+
+document.getElementById("removeDemoBtn").addEventListener("click", function(){
+    let list = document.getElementById("demoList");
+    if(list.children.length === 0){ return; }
+    list.removeChild(list.lastElementChild);
+});
+
+// 4. Click / double-click
+document.getElementById("singleClickBtn").addEventListener("click", function(){
+    document.getElementById("clickResult").innerHTML = "Single click event executed.";
+});
+
+document.getElementById("doubleClickBtn").addEventListener("dblclick", function(){
+    document.getElementById("clickResult").innerHTML = "Double-click event executed.";
+});
+
+// 5. Mouse
+document.getElementById("mouseArea").addEventListener("mouseover", function(){
+    this.style.background = "#fff3a6";
+    document.getElementById("mouseResult").innerHTML = "mouseover event";
+});
+
+document.getElementById("mouseArea").addEventListener("mouseout", function(){
+    this.style.background = "";
+    document.getElementById("mouseResult").innerHTML = "mouseout event";
+});
+
+// 6. Keyboard
+document.getElementById("keyboardInput").addEventListener("keydown", function(event){
+    document.getElementById("keyboardResult").innerHTML = "Key down: " + event.key;
+});
+
+document.getElementById("keyboardInput").addEventListener("keyup", function(){
+    document.getElementById("keyboardResult").innerHTML = "Current value: " + this.value;
+});
+
+// 7. Change
+document.getElementById("categoryDemo").addEventListener("change", function(){
+    document.getElementById("categoryResult").innerHTML = "Selected: " + this.value;
+});
+
+// 8. Theme
+document.getElementById("themeDemoBtn").addEventListener("click", function(){
+    document.body.classList.toggle("dark");
+});
+
+// 9. Image preview
+document.getElementById("imageDemoSelect").addEventListener("change", function(){
+    document.getElementById("imageDemo").src = this.value;
+});
+
+// 10. Menu
+document.getElementById("menuDemoBtn").addEventListener("click", function(){
+    let menu = document.getElementById("dynamicMenu");
+
+    if(menu.style.display === "block"){
+        menu.style.display = "none";
+    }else{
+        menu.style.display = "block";
+    }
+});
+</script>
+
+</body>
+</html>

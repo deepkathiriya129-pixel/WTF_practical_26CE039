@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 6 | TechNest Gadget Store</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="practical6.js" defer></script>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="top-bar">
+            <span class="brand">🛒 TechNest Gadget Store</span>
+            <span class="course">ITUS102 • Practical 6</span>
+        </div>
+        <h1>Find your next favourite gadget</h1>
+        <p>Practise JavaScript timers, callbacks, the Fetch API and browser storage.</p>
+        <div class="promo">
+            <span class="tag">FLASH SALE</span>
+            <span id="promoMessage" aria-live="polite">Welcome! A special deal will appear in 2 seconds.</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="layout">
+
+            <!-- 01 Timers -->
+            <section class="panel">
+                <div class="section-title">
+                    <span class="number">01</span>
+                    <div>
+                        <h2>JavaScript Timers</h2>
+                        <p><code>setTimeout()</code> runs once; <code>setInterval()</code> repeats.</p>
+                    </div>
+                </div>
+                <p id="timerResult" class="message">A new shopping tip will appear every 4 seconds.</p>
+                <div class="actions">
+                    <button id="stopTimerBtn" type="button" class="secondary">Stop Tips</button>
+                    <button id="startTimerBtn" type="button">Restart Tips</button>
+                </div>
+            </section>
+
+            <!-- 02 Callback -->
+            <section class="panel">
+                <div class="section-title">
+                    <span class="number">02</span>
+                    <div>
+                        <h2>Callback Function</h2>
+                        <p>Check an order first, then run another function.</p>
+                    </div>
+                </div>
+                <button id="orderBtn" type="button">Simulate Order Check</button>
+                <p class="note">This is only a demonstration; no order or payment is made.</p>
+                <p id="callbackResult" class="message" role="status" aria-live="polite">Click the button to see the callback steps.</p>
+            </section>
+
+            <!-- 03 Fetch -->
+            <section class="panel wide">
+                <div class="section-title">
+                    <span class="number">03</span>
+                    <div>
+                        <h2>Fetch API and JSON</h2>
+                        <p>Read product data from <code>products.json</code> without reloading the page.</p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button id="loadBtn" type="button">Load Products</button>
+                    <button id="errorBtn" type="button" class="secondary">Test Error Handling</button>
+                    <label class="field" for="categoryFilter">Category
+                        <select id="categoryFilter"><option value="all">All Categories</option></select>
+                    </label>
+                    <label class="check" for="budgetOnly">
+                        <input id="budgetOnly" type="checkbox"> Under ₹10,000 only
+                    </label>
+                    <button id="resetFilterBtn" type="button" class="secondary">Reset Filters</button>
+                </div>
+                <p id="fetchStatus" class="message" role="status" aria-live="polite">Click “Load Products” to begin.</p>
+                <div id="productList" class="product-grid" aria-label="Gadget list"></div>
+            </section>
+
+            <!-- 04 Local storage -->
+            <section class="panel">
+                <div class="section-title">
+                    <span class="number">04</span>
+                    <div>
+                        <h2>Local Storage</h2>
+                        <p>Your category choice and theme stay after a reload.</p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button id="themeBtn" type="button" class="secondary">Switch Light / Dark Theme</button>
+                    <button id="clearLocalBtn" type="button" class="secondary">Clear Saved Preferences</button>
+                </div>
+                <p id="localResult" class="message">Saved preference: none</p>
+                <p class="note">Pick a category above, then refresh the page and load the products again.</p>
+            </section>
+
+            <!-- 05 Session storage -->
+            <section class="panel">
+                <div class="section-title">
+                    <span class="number">05</span>
+                    <div>
+                        <h2>Session Storage</h2>
+                        <p>A customer name is kept for this browser tab only.</p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <label class="field" for="customerName">Customer Name
+                        <input id="customerName" type="text" maxlength="30" placeholder="Enter your name">
+                    </label>
+                    <button id="saveSessionBtn" type="button">Save Name</button>
+                    <button id="clearSessionBtn" type="button" class="secondary">Clear Name</button>
+                </div>
+                <p id="sessionResult" class="message" role="status" aria-live="polite">No temporary customer name is saved.</p>
+            </section>
+
+            <!-- Summary -->
+            <section class="panel wide lesson">
+                <h2>What students should understand</h2>
+                <p><strong>Timers → Callback → Fetch JSON → Update HTML → Save preferences.</strong> Everything runs in the browser with HTML5, CSS3 and JavaScript. No database or backend is needed.</p>
+                <p class="note">Important: open this project with VS Code Live Server or <code>python -m http.server 8000</code>. Fetching a local JSON file usually fails if you double-click the HTML file.</p>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>ITUS102 – Web Technology Framework • Beginner Practical 6</footer>
+</body>
+</html>

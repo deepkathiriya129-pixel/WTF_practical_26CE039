@@ -1,0 +1,378 @@
+{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #261c3a;
+    background: #f6f2fb;
+    line-height: 1.5;
+}
+
+/* ===== Header ===== */
+.hero {
+    background: linear-gradient(115deg, #2a1459, #6d28d9);
+    color: white;
+    padding: 28px max(20px, calc((100vw - 1000px) / 2)) 42px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.course {
+    font-size: 12px;
+    color: #e3d5ff;
+}
+
+h1 {
+    font-size: clamp(26px, 4vw, 38px);
+    margin: 28px 0 8px;
+}
+
+.hero p {
+    color: #efe6ff;
+    margin: 0 0 22px;
+}
+
+.promo {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 13px 15px;
+    border-radius: 9px;
+}
+
+.tag {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    background: #fbbf24;
+    color: #3b2400;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* ===== Layout: two panels per row ===== */
+.container {
+    max-width: 1040px;
+    padding: 0 20px;
+    margin: 25px auto 40px;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    align-items: start;
+}
+
+.panel {
+    background: white;
+    padding: 22px;
+    border: 1px solid #e3daf1;
+    border-top: 4px solid #f59e0b;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(60, 20, 120, 0.07);
+}
+
+.panel.wide {
+    grid-column: 1 / -1;
+}
+
+.section-title {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.number {
+    background: #ede4ff;
+    color: #5b21b6;
+    border-radius: 7px;
+    padding: 8px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.section-title p {
+    margin: 4px 0 0;
+    color: #6b5d85;
+    font-size: 14px;
+}
+
+/* ===== Controls ===== */
+.actions {
+    display: flex;
+    gap: 9px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin: 12px 0;
+}
+
+button,
+select,
+input {
+    font: inherit;
+    border-radius: 7px;
+}
+
+button {
+    border: 0;
+    background: #6d28d9;
+    color: white;
+    padding: 10px 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(0.92);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+button.secondary {
+    background: #f3ecff;
+    color: #4c1d95;
+    border: 1px solid #d6c4f5;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: #54436f;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.check {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    padding-bottom: 10px;
+    color: #54436f;
+    font-size: 14px;
+}
+
+select,
+input[type="text"] {
+    border: 1px solid #cbbde3;
+    background: white;
+    color: #2d2145;
+    padding: 9px 10px;
+    min-width: 190px;
+}
+
+/* ===== Messages ===== */
+.message {
+    background: #f4efff;
+    padding: 12px 14px;
+    border-left: 3px solid #7c3aed;
+    border-radius: 5px;
+    margin: 12px 0;
+    color: #3d2a66;
+}
+
+.message.error {
+    background: #fff1f2;
+    border-color: #d33c50;
+    color: #9b1838;
+}
+
+.message.success {
+    background: #edfdf4;
+    border-color: #23905e;
+    color: #175c40;
+}
+
+.note {
+    font-size: 13px;
+    color: #7a6c92;
+}
+
+code {
+    background: #f0e9fb;
+    padding: 2px 5px;
+    border-radius: 3px;
+    color: #5b21b6;
+}
+
+/* ===== Product cards ===== */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 13px;
+    margin-top: 15px;
+}
+
+.product-card {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #e3daf1;
+    background: #fdfbff;
+    text-align: center;
+}
+
+.product-icon {
+    font-size: 34px;
+}
+
+.product-card h3 {
+    margin: 6px 0;
+    font-size: 17px;
+}
+
+.product-card .meta {
+    color: #7a6c92;
+    font-size: 13px;
+}
+
+.product-card p {
+    margin: 7px 0 0;
+    font-size: 14px;
+}
+
+.product-card .price {
+    font-weight: 700;
+    font-size: 18px;
+    color: #b45309;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 22px;
+    color: #7a6c92;
+    font-size: 13px;
+}
+
+/* ===== Dark theme ===== */
+body.dark {
+    background: #130d24;
+    color: #ece4fa;
+}
+
+body.dark .panel {
+    background: #221838;
+    border-color: #3d2f5c;
+    border-top-color: #f59e0b;
+}
+
+body.dark .section-title p,
+body.dark .note,
+body.dark footer,
+body.dark .product-card .meta {
+    color: #c3b4df;
+}
+
+body.dark .message {
+    background: #2f2350;
+    color: #e5dcf8;
+}
+
+body.dark .message.error {
+    background: #562838;
+    color: #ffe2e7;
+}
+
+body.dark .message.success {
+    background: #173f34;
+    color: #d8ffea;
+}
+
+body.dark .product-card {
+    background: #2a1f45;
+    border-color: #4a3a70;
+}
+
+body.dark .product-card .price {
+    color: #fcd34d;
+}
+
+body.dark code {
+    background: #3a2d5c;
+    color: #e0d0ff;
+}
+
+body.dark .field,
+body.dark .check {
+    color: #dccff3;
+}
+
+body.dark select,
+body.dark input[type="text"] {
+    background: #3a2d5c;
+    color: white;
+    border-color: #6a5a92;
+}
+
+body.dark button.secondary {
+    background: #3a2d5c;
+    color: #eee4ff;
+    border-color: #6a5a92;
+}
+
+body.dark .number {
+    background: #3a2d5c;
+    color: #e0d0ff;
+}
+
+/* ===== Small screens ===== */
+@media (max-width: 760px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .hero {
+        padding: 22px 18px 30px;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    .panel {
+        padding: 17px;
+    }
+
+    .course {
+        display: none;
+    }
+
+    .promo {
+        align-items: flex-start;
+    }
+
+    select,
+    input[type="text"] {
+        width: 100%;
+    }
+
+    .field {
+        width: 100%;
+    }
+}
